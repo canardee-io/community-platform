@@ -2,3 +2,5 @@ DDGC-*
 .build
 po-files/*
 *~
+*.bak
+.DS_*
