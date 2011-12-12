@@ -1,1 +1,18 @@
-<div class="mybox">TODO</div>
+<@ IF c.user @>
+  <p class="infobox">This site is under construction.</p>
+<@ ELSE @>
+  <p class="myponds">Tip: Use the short URL <a href="http://ddg.gg/">ddg.gg</a> for less typing.</p>
+<@ END @>
+
+<div class="aboutddgponds">
+  <h2>Welcome!</h2>
+  <p><a href="https://duckduckgo.com/">DuckDuckGo</a> is a general purpose search engine.</p>
+  <p>Our search engine is very user driven.</p>
+  <p>On this page you can group resources in "ponds"</p>
+  <h2>Here Are Your Ponds</h2>
+  <ul>
+    <li><a href="<@ u('Ponds','github') @>">GitHub</a></li>
+    <li><a href="<@ u('Ponds','sourceforge') @>">SourceForge</a></li>
+  </ul>
+</div>
+

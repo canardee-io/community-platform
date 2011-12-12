@@ -17,6 +17,11 @@
     <li><a href="http://duckduckgo.com/spread.html">Spread DuckDuckGo!</a></li>
     <li><a href="<@ u('Base','feedback') @>">Submit feedback</a></li>
   </ul>
+  <h2>DuckDuckGo Duck Ponds</h2>
+  <ul>
+    <li><a href="<@ u('Ponds','github') @>">GitHub</a></li>
+    <li><a href="<@ u('Ponds','sourceforge') @>">SourceForge</a></li>
+  </ul>
 </div>
 
 <div class="aboutddg">
@@ -36,11 +41,6 @@
     <li><a href="https://joindiaspora.com/u/duckduckgo">diaspora</a></li>
     <li><a href="http://webchat.freenode.net/?channels=duckduckgo">IRC Channel</a></li>
     <li><a href="https://github.com/duckduckgo">GitHub</a></li>
-  </ul>
-  <h2>DuckDuckGo Duck Ponds</h2>
-  <ul>
-    <li><a href="<@ u('Ponds','github') @>">GitHub</a></li>
-    <li><a href="<@ u('Ponds','sourceforge') @>">SourceForge</a></li>
   </ul>
 </div>
 

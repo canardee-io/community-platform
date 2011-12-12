@@ -7,14 +7,6 @@ use DDGC::Config;
 use Github::Score;
 
 
-# use base qw/Catalyst::Controller/;
-# 
-# 	__PACKAGE__->config(
-# 		  actions => {
-# 			'repo_scores' => { Path => '/github/repo-scores' },
-# 	,
-# 	);
-# 
 BEGIN {extends 'Catalyst::Controller'; }
 
 =head2 repo_scores
