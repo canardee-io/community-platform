@@ -1,0 +1,48 @@
+=for Randall Schwartz sez
+
+To control ttree for a project of any size, you need a ttreerc file. 
+The simplest way to use ttree for a project is to set the TTREERC  environment 
+variable to point at a file for the project. 
+Yes, this is inconvenient: apparently Andy Wardley thinks you’re only ever working 
+on one thing at a time. My sample ttreerc file is given in Listing One.
+LISTING ONE: An example ttreerc file
+01recurse
+02verbose
+03src = src
+04dest = dest
+05lib = lib
+06copy = \.(gif|jpg|png|css)$
+07ignore = ~$
+08post_chomp 1
+09
+10preprocess = data
+11preprocess = templates
+12process = process
+
+Line 1 enables recursive processing, which makes sense because the tool is processing 
+a hierarchy. 
+Line 2 enables a verbose trace of the processing. Lines 3 and 4 define source and 
+destination directories, relative to the current directory. Files in src are copied 
+to the corresponding location in dest. (I’ll publish the files in dest to the web site.)
+
+Line 5 defines a lib, which gets added to the INCLUDE_PATH for TT. 
+This directory contains the files for INCLUDE and WRAPPER and PROCESS directives.
+
+Line 6 defines filenames that will be copied as-is from the src to the dest hierarchy. 
+Here, you don’t want TT to expand your images or CSS files! Similarly, 
+Line 7 defines files that are ignored: in this case, files that end in tilde, such as the 
+editing backup files made by Emacs. Any file that doesn’t match either the copy or ignore 
+patterns is processed through TT.
+
+Line 8 enables post-chomp mode, which I find convenient as it seems to eat about the 
+right number of newlines by default.
+
+Lines 10-12 control how each file processed through TT gets interpreted. Both data and 
+templates are pre-processed, meaning that their contents are evaluated before each file. 
+And process is processed in place of the original file, passing the template variable into 
+the template so that the template can completely control additional headers and footers to 
+be added to the file. All three of these files are located in the lib directory. 
+(This configuration uses the PROCESS configuration setting, so see the TT documentation for 
+further explanation and examples of that.)
+
+=cut
