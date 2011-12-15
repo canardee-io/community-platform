@@ -1,0 +1,3 @@
+[% SET meta.a = 'A' %]
+[% SET meta.b = 'B' %]
+[% SET meta.c = 'C' %]
