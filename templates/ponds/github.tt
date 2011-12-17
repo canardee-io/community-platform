@@ -1,3 +1,4 @@
+<@ INCLUDE head.tt @>
 <@ IF c.user @>
   <p class="infobox">This site is under construction.</p>
 <@ ELSE @>
@@ -8,11 +9,28 @@
   <h2>Welcome!</h2>
   <p><a href="https://duckduckgo.com/">DuckDuckGo</a> is a general purpose search engine.</p>
   <p>Our search engine is very user driven.</p>
-  <p>On this page you can group resources in "ponds"</p>
-  <h2>Here Are Your Ponds</h2>
-  <ul>
-    <li><a href="<@ u('Ponds','github') @>">GitHub</a></li>
-    <li><a href="<@ u('Ponds','sourceforge') @>">SourceForge</a></li>
-  </ul>
+  <p>On this page are examples of how resources can be grouped in "ponds"</p>
+  <div>
+  <h2>Example Pond - Developer Repo</h2>
+	<ul>
+	<div>
+	<li><a href = "<@ u('Ponds','github') @>">GitHub</a></li>
+  <h3>Github High Score</h3>
+    <label for="github_repo" >
+      Enter Repository To Query:
+    </label>
+	<input type = "text" name="github_score_repo" id="github_score_repo" value="<@ c.user.data.gitub_score.repo @>">
+	<br>
+    <label for="github_user" >
+      Enter User To Check:
+    </label>
+	<input type = "text" name="github_score_user" id="github_score_user" value="<@ c.user.data.gitub_score.user @>">
+	<br>
+	<input type="submit" value="Get Contributions Score" name="github_score_contributions" id="github_score_contributions">
+	</div>
+	<li><a href = "<@ u('Ponds','sourceforge') @>">SourceForge</a></li>
+	<input type = "text" name="sourceforge" id="sourceforge" value="<@ c.user.data.sourceforge @>">
+	</ul>
+  </div>
 </div>
 
