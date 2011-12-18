@@ -2,3 +2,23 @@
 Template to display contributions data from a Github::Score query
 @>
 
+
+    <@ FILTER null;
+        data = [
+            ["1st","2nd","3rd","4th","5th","6th"],
+            [    4,    2,    3,    4,    3,  3.5]
+        ];
+
+        USE my_graph = GD.Graph.pie( 250, 200 );
+
+        my_graph.set(
+                title => 'A Pie Chart',
+                label => 'Label',
+                axislabelclr => 'black',
+                pie_height => 36,
+
+                transparent => 0,
+        );
+        my_graph.plot(data).png ;
+       END;
+    -@>

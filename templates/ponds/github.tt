@@ -35,6 +35,6 @@
    <@  key @> => <@  c.request.parameters.$key @><br>
 <@  END @>
 <@ IF c.request.parameters.get_scores.defined @>
-<@ INCLUDE scores.tt @>
+<@ INCLUDE ponds/scores.tt @>
 <@ END @>
 <@ INCLUDE footer.tt @>
