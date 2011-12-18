@@ -21,7 +21,7 @@ BEGIN {extends 'Catalyst::Controller'; }
 ## 
 sub repo_scores : Chained('ponds') :PathPart('github/score') :Args(0) {  
 my ( $self, $c ) = @_;
-die Dumper $c;
+##die Dumper $c;
 
 	my $gs = Github::Score->new(
 		user=>$c->req->params->{github_score_user}, 
@@ -30,7 +30,7 @@ die Dumper $c;
 	my $author_contrib_map = $gs->scores();
 
 	$c->{'contributions'} = $author_contrib_map;
-	
+	$c->stash->{template} = 'scores.tt';
 }
 
 
@@ -43,6 +43,8 @@ my ( $self, $c ) = @_;
 sub github : Chained('ponds') :Args(0) {  
 my ( $self, $c ) = @_;
 
+	($c->response->redirect($c->chained_uri('Ponds','repo_scores'))) && return $c->detach 
+		if (defined $c->req->params->{'get_scores'});
 
 }
 
