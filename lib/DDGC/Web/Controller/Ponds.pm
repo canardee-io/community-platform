@@ -19,11 +19,21 @@ BEGIN {extends 'Catalyst::Controller'; }
 ## /github/repos/scores
 ## The question is how specific to make the url
 ## 
-sub repo_scores : Chained('/base') :PathPart('ponds/github/scores') :CaptureArgs(0) {  
+sub repo_scores : Chained('ponds') :PathPart('github/score') :Args(0) {  
 my ( $self, $c ) = @_;
+die Dumper $c;
 
+	my $gs = Github::Score->new(
+		user=>$c->req->params->{github_score_user}, 
+		repo=>$c->req->params->{github_score_repo},
+		); 
+	my $author_contrib_map = $gs->scores();
 
+	$c->{'contributions'} = $author_contrib_map;
+	
 }
+
+
 
 sub ponds : Chained('/') :PathPart('ponds') :CaptureArgs(0) {
 my ( $self, $c ) = @_;
