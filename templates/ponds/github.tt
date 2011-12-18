@@ -1,18 +1,13 @@
 <@ INCLUDE head.tt @>
 <@ INCLUDE logo.tt @>
-<@ IF c.user @>
-  <p class="infobox">This site is under construction.</p>
-<@ ELSE @>
   <p class="myponds">Tip: Use the short URL <a href="http://ddg.gg/">ddg.gg</a> for less typing.</p>
-<@ END @>
 
 <div class="aboutddgponds">
   <p><a href="https://duckduckgo.com/">DuckDuckGo</a> is a user driven, general purpose search engine.</p>
   <p>On this page are examples of how resources can be grouped in "ponds"</p>
   <div>
-  <h2>Example Pond - Developer Repo</h2>
+  <h2>Example Pond 1. Developer Repo</h2>
 	<ul>
-	<div>
   <h3>Github High Score</h3>
 	<form action="<@ u('Ponds','repo_scores') @>" method="post" id="repo_scores" class="ponds">
 
@@ -28,17 +23,18 @@
     </label>
 	<input type = "text" name="github_score_user" id="github_score_user" >
 	<br>
-<!--	<input type="submit" value="Get Contributions Score" name="repo_scores" id="repo_scores"> -->
-	<a href = "github/score"> Get Scores</a>
-	</div>
+	<input type="submit" value="Get Contributions Score" name="get_scores" id="get_scores"> 
+<!--	<a href = "github/score?repo=github_score_repo,user=github_score_user"> Get Scores</a>-->
 </fieldset>
 </form>	
 	<li><a href = "<@ u('Ponds','sourceforge') @>">SourceForge</a></li>
-	<input type = "text" name="sourceforge" id="sourceforge" value="<@ c.user.data.sourceforge @>">
+	<input type = "text" name="sourceforge" id="sourceforge" value="<@ c.sourceforge @>">
 	</ul>
-  </div>
 </div>
-<@ IF have_scores @>
+<@ FOREACH key = c.request.parameters.keys @>
+   <@  key @> => <@  c.request.parameters.$key @><br>
+<@  END @>
+<@ IF c.request.parameters.get_scores.defined @>
 <@ INCLUDE scores.tt @>
 <@ END @>
-
+<@ INCLUDE footer.tt @>
