@@ -19,18 +19,17 @@ BEGIN {extends 'Catalyst::Controller'; }
 ## /github/repos/scores
 ## The question is how specific to make the url
 ## 
-sub repo_scores : Chained('ponds') :PathPart('github/score') :Args(0) {  
+sub scores : Chained('ponds') :PathPart('github/score') :Args(0) {  
 my ( $self, $c ) = @_;
-##die Dumper $c;
+#		die Dumper \@_;
 
 	my $gs = Github::Score->new(
 		user=>$c->req->params->{github_score_user}, 
 		repo=>$c->req->params->{github_score_repo},
 		); 
 	my $author_contrib_map = $gs->scores();
-
+die Dumper $author_contrib_map;
 	$c->{'contributions'} = $author_contrib_map;
-	$c->stash->{template} = 'scores.tt';
 }
 
 
@@ -43,8 +42,10 @@ my ( $self, $c ) = @_;
 sub github : Chained('ponds') :Args(0) {  
 my ( $self, $c ) = @_;
 
-	($c->response->redirect($c->chained_uri('Ponds','repo_scores'))) && return $c->detach 
-		if (defined $c->req->params->{'get_scores'});
+	(defined $c->req->params->{'get_scores'}) and do {
+		$c->forward('Ponds','scores',);
+#	 	return $c->detach 
+	};
 
 }
 
