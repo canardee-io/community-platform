@@ -23,6 +23,7 @@ __PACKAGE__->config(
 	START_TAG => '<@',
 	END_TAG => '@>',
 	ENCODING => 'utf-8',
+	OUTPUT_PATH => DDGC::Web->path_to('root/static/images'),
 );
 
 =head1 NAME

@@ -28,7 +28,6 @@ my ( $self, $c ) = @_;
 		repo=>$c->req->params->{github_score_repo},
 		); 
 	my $author_contrib_map = $gs->scores();
-die Dumper $author_contrib_map;
 	$c->{'contributions'} = $author_contrib_map;
 }
 

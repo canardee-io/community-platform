@@ -1,9 +1,9 @@
 <@#
 Template to display contributions data from a Github::Score query
+<IMG SRC="scores-user-repo-date.png" HSPACE="10" VSPACE="3">
 @>
-
-
-    <@ FILTER null;
+<@ 
+#FILTER null;
         data = [
             ["1st","2nd","3rd","4th","5th","6th"],
             [    4,    2,    3,    4,    3,  3.5]
@@ -19,6 +19,8 @@ Template to display contributions data from a Github::Score query
 
                 transparent => 0,
         );
-        my_graph.plot(data).png ;
-       END;
-    -@>
+  #     png_dump = 
+		my_graph.plot(data).png | redirect("scores.png", binmode=1)
+ #      END;
+@>
+<img src="/static/images/scores.png">

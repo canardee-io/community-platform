@@ -31,9 +31,6 @@
 	<input type = "text" name="sourceforge" id="sourceforge" value="<@ c.sourceforge @>">
 	</ul>
 </div>
-<@ FOREACH key = c.request.parameters.keys @>
-   <@  key @> => <@  c.request.parameters.$key @><br>
-<@  END @>
 <@ IF c.request.parameters.get_scores.defined @>
 <@ INCLUDE ponds/scores.tt @>
 <@ END @>
