@@ -1,6 +1,6 @@
 <@ INCLUDE head.tt @>
 <@ INCLUDE logo.tt @>
-  <p class="myponds">Tip: Use the short URL <a href="http://ddg.gg/">ddg.gg</a> for less typing.</p>
+<p class="myponds">Tip: Use the short URL <a href="http://ddg.gg/">ddg.gg</a> for less typing.</p>
 
 <div class="aboutddgponds">
   <p><a href="https://duckduckgo.com/">DuckDuckGo</a> is a user driven, general purpose search engine.</p>

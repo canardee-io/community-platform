@@ -1,26 +1,26 @@
 <@#
 Template to display contributions data from a Github::Score query
 <IMG SRC="scores-user-repo-date.png" HSPACE="10" VSPACE="3">
+Allegedly you can do this sort of thing to embed images:
+<img src="data:image/png;base64,....">
+Couldn't get it to work
 @>
 <@ 
-#FILTER null;
-        data = [
-            ["1st","2nd","3rd","4th","5th","6th"],
-            [    4,    2,    3,    4,    3,  3.5]
-        ];
-
         USE my_graph = GD.Graph.pie( 250, 200 );
-
         my_graph.set(
-                title => 'A Pie Chart',
-                label => 'Label',
+                title => 'Github High Scores',
+                label => 'Commits Per User',
                 axislabelclr => 'black',
-                pie_height => 36,
-
+                pie_height => 24,
+				legend => '',
                 transparent => 0,
         );
-  #     png_dump = 
-		my_graph.plot(data).png | redirect("scores.png", binmode=1)
- #      END;
+		my_graph.set_font('arial',24);
+        data = [
+            c.contributions.keys,
+            c.contributions.values,
+        ];
+
+ 		my_graph.plot(data).png | redirect("scores.png", binmode=1)
 @>
 <img src="/static/images/scores.png">

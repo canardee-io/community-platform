@@ -1,3 +1,8 @@
 <div class="header">
-  <p id="logo"><a href="<@ u('Root','index') @>"><img alt="DuckDuckGo Community Platform" src="/static/images/cduck.png" /><span></span></a></p>
+  <p id="logo">
+<a href="<@ u('Root','index') @>">
+<img alt="DuckDuckGo Community Platform" src="/static/images/cduck.png" >
+<span></span>
+</a></p>
 </div>
+
